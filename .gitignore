@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environment
+venv/
+env/
+.env
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Credentials and tokens
+credentials/
+*.json
+*.pickle
+
+# Environment variables
+.env.local
+
+# Logs
+*.log
+
+# Output files
+llm_output.txt
+output.txt
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
