@@ -1,5 +1,7 @@
 # terminal google calendar using openai
 
+this project utilizes the `gcsa` package for google calendar integration and openai for generating event details. ensure you have an openai api key to use this functionality.
+
 - Add new events to your Google Calendar
 - Delete events from your calendar
 - View existing events
