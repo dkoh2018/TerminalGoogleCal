@@ -2,6 +2,7 @@ from add_new_event import add_new_event
 from delete_an_event import delete_an_event
 from view_events import view_events
 from settings import calendar_settings
+from see_ya import see_ya
 
 
 def main_menu():
@@ -24,11 +25,21 @@ def main_menu():
         elif choice == "4":
             calendar_settings()
         elif choice == "5":
-            print("Terminated Program!!!")
+            see_ya()
             break
         else:
             print("Invalid choice. Please try again.")
 
 
 if __name__ == "__main__":
+    print(
+        """
+           #######            #######      ###      ##                 
+         ##     ##           ##    ##     ## ##     ##                  
+         ##                  ##          ##   ##    ##                  
+         ##   ####   ####    ##         ## # # ##   ##                 
+         ##      #           ##    ##   ##     ##   ##                  
+          #######             ######    ##     ##   ########               
+        """
+    )
     main_menu()

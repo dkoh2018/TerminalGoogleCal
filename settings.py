@@ -1,9 +1,12 @@
 from gcsa.google_calendar import GoogleCalendar
-import os
 from dotenv import load_dotenv
+import os
+from datetime import datetime, timedelta
+from openai import OpenAI
 
 
 def calendar_settings():
+    # Load environment variables from .env.local
     load_dotenv(dotenv_path=".env.local")
 
     # Retrieve the variables
@@ -16,9 +19,13 @@ def calendar_settings():
         token_path=token_path,
     )
 
-    settings = gc.get_settings()
-    print(f"\n{settings}")
-    print("\n...is there anything else you'd like to do?\n")
+    time_min = datetime.now() - timedelta(days=0)
+    time_max = datetime.now() + timedelta(days=10)
+
+    events = gc.get_events(time_min, time_max, order_by="startTime", single_events=True)
+
+    for event in events:
+        print(event)
 
 
 if __name__ == "__main__":
