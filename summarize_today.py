@@ -12,17 +12,22 @@ from llm_prompts import (
     system_message_parameterdirections,
     system_message_directions,
     system_message_request,
+    system_summary,
 )
 
 
-def add_new_event():
+def summarize_today():
     gc = authenticate_calendar()
+
     # user input
-    print(f"\n{Fore.CYAN}{Style.BRIGHT}--- Add a New Event ---{Style.RESET_ALL}\n")
+    # print(f"\n{Fore.CYAN}{Style.BRIGHT}--- Add a New Event ---{Style.RESET_ALL}\n")
+    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'='*30}")
+    print(f"{' ' * 4}🌟 Summarize your day 🌟")
+    print(f"{'='*30}{Style.RESET_ALL}\n")
 
     # Get current time and user input
     user_input = input(
-        f"{Fore.YELLOW}{Style.BRIGHT}What would you like to add to your calendar?\n==> {Style.RESET_ALL}"
+        f"{Fore.YELLOW}{Style.BRIGHT}What did you do today? \n==> {Style.RESET_ALL}"
     )
     current_time = datetime.now()
 
@@ -43,6 +48,10 @@ def add_new_event():
         {
             "role": "system",
             "content": f"{system_message_request}",
+        },
+        {
+            "role": "system",
+            "content": f"{system_summary}",
         },
         {
             "role": "user",
@@ -71,7 +80,8 @@ def add_new_event():
     system_request2 = """
     I will quickly summarize the events added for you in a simple list. Make sure to include the event title, start/end time, and description (if available) that's easy to read. You will see the output something similar to this:
     
-    Great! I've added these events for you:
+    And boom! Here's everything you did today:
+    
     1) Testing Application  
        Start: August 9, 2024, 8:00 PM  
        End: August 9, 2024, 10:00 PM  
@@ -81,7 +91,7 @@ def add_new_event():
        End: August 10, 2024, 3:00 PM  
     
     Successfully added...
-    Let's continue...
+    Let's continue...if you want...
     """
     messages2 = [
         {
@@ -105,4 +115,4 @@ def add_new_event():
 
 
 if __name__ == "__main__":
-    add_new_event()
+    summarize_today()

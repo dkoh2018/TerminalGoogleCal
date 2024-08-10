@@ -27,6 +27,7 @@ credentials/
 # Output files
 llm_output.txt
 output.txt
+list_of_events.txt
 
 # OS-specific files
 .DS_Store
