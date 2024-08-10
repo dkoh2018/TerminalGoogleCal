@@ -19,17 +19,22 @@ from llm_prompts import (
 def summarize_today():
     gc = authenticate_calendar()
 
-    # user input
-    # print(f"\n{Fore.CYAN}{Style.BRIGHT}--- Add a New Event ---{Style.RESET_ALL}\n")
-    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'='*30}")
-    print(f"{' ' * 4}🌟 Summarize your day 🌟")
-    print(f"{'='*30}{Style.RESET_ALL}\n")
+    # User input prompt
+    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'='*50}")
+    print(f"{Fore.YELLOW}{Style.BRIGHT}📅 Daily Summary")
+    print(f"{Fore.CYAN}{Style.BRIGHT}{'='*50}")
 
-    # Get current time and user input
+    # current date and time
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    current_time = datetime.now()
+
+    print(
+        f"{Fore.GREEN}Today's Date: {current_date}: {current_time.strftime('%H:%M:%S')}"
+    )
+    print(f"{Fore.CYAN}{'-'*50}")
     user_input = input(
         f"{Fore.YELLOW}{Style.BRIGHT}What did you do today? \n==> {Style.RESET_ALL}"
     )
-    current_time = datetime.now()
 
     # Combine current time with user input
     user_message = f"{current_time}: {user_input}."

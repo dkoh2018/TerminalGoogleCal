@@ -4,38 +4,64 @@ from datetime import datetime, timedelta
 from authenticate_calendar import authenticate_calendar
 from openai import OpenAI
 from colorama import Fore, Style, init
+from llm_prompts import (
+    system_delete_message_parameterdirections,
+    system_delete_message_request,
+)
 
 
 def delete_an_event():
-    # Authenticate Google Calendar
+    # authenticate Google Calendar
     gc = authenticate_calendar()
 
-    while True:
-        # Prompt the user to choose between deleting past or upcoming events
-        print(f"\n{Style.BRIGHT}{Fore.CYAN}Choose an option:{Style.RESET_ALL}")
-        print(f"{Fore.YELLOW}1) Delete upcoming events{Style.RESET_ALL}")
-        print(f"{Fore.YELLOW}2) Delete past events{Style.RESET_ALL}")
-        choice = input(f"\n{Style.BRIGHT}Enter 1 or 2: {Style.RESET_ALL}")
+    # user input
+    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'='*50}")
+    print(f"{Fore.YELLOW}{Style.BRIGHT}📅 Delete an event")
+    print(f"{Fore.CYAN}{Style.BRIGHT}{'='*50}")
 
-        # Determine the time range based on user choice
+    # current date and time
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    current_time = datetime.now()
+
+    print(
+        f"{Fore.GREEN}Today's Date: {current_date}: {current_time.strftime('%H:%M:%S')}"
+    )
+    print(f"{Fore.CYAN}{'-'*50}")
+    while True:
+        # prompt the user to choose between deleting past, upcoming, or recent events
+        print(f"\n{Style.BRIGHT}{Fore.CYAN}Choose an option:{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}1) Delete future events{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}2) Delete past events{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}3) Delete most recent events{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}4) Go back to main menu{Style.RESET_ALL}")
+        choice = input(f"\n{Style.BRIGHT}Enter 1, 2, 3, or 4: {Style.RESET_ALL}")
+
+        # determine the time range based on user choice
         if choice == "1":
-            time_min = datetime.now() - timedelta(hours=3)
+            time_min = datetime.now()
             time_max = datetime.now() + timedelta(days=14)
-            header = f"\n{Fore.GREEN}Delete upcoming events from {time_min.date()} to {time_max.date()}:{Style.RESET_ALL}\n"
+            header = f"\n{Fore.GREEN}Delete future events from {time_min.date()} to {time_max.date()}:{Style.RESET_ALL}\n"
         elif choice == "2":
             time_min = datetime.now() - timedelta(days=14)
             time_max = datetime.now()
             header = f"\n{Fore.GREEN}Delete past events from {time_min.date()} to {time_max.date()}:{Style.RESET_ALL}\n"
+        elif choice == "3":
+            time_min = datetime.now() - timedelta(days=2)
+            time_max = datetime.now() + timedelta(days=3)
+            header = f"\n{Fore.GREEN}Delete most recent events from {time_min.date()} to {time_max.date()}:{Style.RESET_ALL}\n"
+        elif choice == "4":
+            print(f"{Fore.GREEN}Returning to main menu...{Style.RESET_ALL}")
+            return
         else:
-            print(f"{Fore.RED}Invalid choice. Exiting.{Style.RESET_ALL}")
-            exit()
+            print(f"{Fore.RED}Invalid choice. Please try again.{Style.RESET_ALL}")
+            continue
 
-        # Fetch events within the chosen time range
+        # fetch events within the chosen time range
         events = list(
             gc.get_events(time_min, time_max, order_by="startTime", single_events=True)
         )
 
-        # Open a file to write the output
+        # open a file to write the output
         with open("list_of_events.txt", "w") as file:
             output_header = header + "-" * 80 + "\n" + "-" * 80 + "\n"
             print(output_header)
@@ -71,30 +97,15 @@ def delete_an_event():
 
                     event_details += "-" * 80 + "\n"
 
-                    # Write to file and print to terminal
+                    # write to file and print to terminal
                     print(event_details)
                     file.write(event_details)
 
-                    # Increment the counter for the next event
+                    # increment the counter for the next event
                     event_counter += 1
-
-        # Predefined system prompts
-        system_message_parameterdirections = """
-        You will be given a txt file with a list of events. Each event has an ID and is ordered. Based on the order, you must locate the EVENT_ID.
-        """
 
         with open("list_of_events.txt", "r") as file:
             user_list = file.read()
-
-        system_message_request = """
-        Thank you for providing the list. Now that we have the list in order, please specify the number of the event you'd like to delete. Once you provide the number, I will locate the corresponding `EVENT_ID` and present it as a variable called `eventID`. Then, I will execute the command `gc.delete_event(eventID)`.
-
-        The final output should look like this:
-        eventID = "_60sjih9g8gskcb9p60pjab9k8kr3cba18kpj0b9h6ssk6dhm8p132c9n60_20240809"
-        gc.delete_event(eventID)
-
-        ALWAYS ENSURE NO MATTER WHAT that the output is not in code blocks with ```PYTHON```, and make sure there is no extra spacing before or after the `eventID` string.
-        """
 
         input_message = input(
             f"{Style.BRIGHT}{Fore.CYAN}Which item would you like to delete? Please enter a number: {Style.RESET_ALL}"
@@ -105,7 +116,7 @@ def delete_an_event():
         messages = [
             {
                 "role": "system",
-                "content": f"{system_message_parameterdirections}",
+                "content": f"{system_delete_message_parameterdirections}",
             },
             {
                 "role": "system",
@@ -113,7 +124,7 @@ def delete_an_event():
             },
             {
                 "role": "system",
-                "content": f"{system_message_request}",
+                "content": f"{system_delete_message_request}",
             },
             {
                 "role": "user",
@@ -186,7 +197,7 @@ def delete_an_event():
             .lower()
         )
         if delete_another != "y":
-            print(f"\n{Fore.GREEN}Catch you later...{Style.RESET_ALL}")
+            print(f"\n{Fore.YELLOW}Catch you later...{Style.RESET_ALL}")
             break
 
 

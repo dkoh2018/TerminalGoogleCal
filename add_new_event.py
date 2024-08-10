@@ -17,15 +17,24 @@ from llm_prompts import (
 
 def add_new_event():
     gc = authenticate_calendar()
-    # user input
-    print(f"\n{Fore.CYAN}{Style.BRIGHT}--- Add a New Event ---{Style.RESET_ALL}\n")
 
-    # Get current time and user input
-    user_input = input(
-        f"{Fore.YELLOW}{Style.BRIGHT}What would you like to add to your calendar?\n==> {Style.RESET_ALL}"
-    )
+    # user input
+    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'='*50}")
+    print(f"{Fore.YELLOW}{Style.BRIGHT}📅 Add New Event")
+    print(f"{Fore.CYAN}{Style.BRIGHT}{'='*50}")
+
+    # current date and time
+    current_date = datetime.now().strftime("%Y-%m-%d")
     current_time = datetime.now()
 
+    print(
+        f"{Fore.GREEN}Today's Date: {current_date}: {current_time.strftime('%H:%M:%S')}"
+    )
+    print(f"{Fore.CYAN}{'-'*50}")
+
+    user_input = input(
+        f"{Fore.YELLOW}{Style.BRIGHT}What event(s) did you want to add? \n==> {Style.RESET_ALL}"
+    )
     # Combine current time with user input
     user_message = f"{current_time}: {user_input}."
 

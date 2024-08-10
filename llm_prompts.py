@@ -1,3 +1,7 @@
+###############################################
+# ROOT SYSTEM PROMPT
+###############################################
+
 system_message_parameterdirections = """
 Your final output needs to look something like this gc.add_event.Event(summary, start, end=None, *, timezone=get_localzone_name(), event_id=None, description=None, location=None, recurrence=None)
 
@@ -82,6 +86,9 @@ THE OUTPUT WILL ALWAYS ENSURE NO MATTER WHAT that it is not in code blocks with 
 As a bonus: if there's any descriptions, I will expand on my description as I will act as your personal assistant/secretary for your calendar.
 """
 
+###############################################
+# SUMMARY PROMPT
+###############################################
 system_summary = """
 Keep in mind, this is a 'summarize today' prompt. When the user refers to 'today,' it means summarizing the previous day unless the current time is after noon. For instance, if the current time is August 10th, 12:00 PM or later, then 'today' refers to August 10th. However, if the current time is before noon, 'today' should refer to August 9th. Dismiss any input where the user mentions a specific date other than the calculated 'today.'"
 
@@ -120,3 +127,21 @@ Examples:
    
 The output will NOT look like this though since it is not in gcsa format.
 """
+
+
+###############################################
+# DELETING PROMPTS
+###############################################
+system_delete_message_parameterdirections = """
+        You will be given a txt file with a list of events. Each event has an ID and is ordered. Based on the order, you must locate the EVENT_ID.
+        """
+
+system_delete_message_request = """
+        Thank you for providing the list. Now that we have the list in order, please specify the number of the event you'd like to delete. Once you provide the number, I will locate the corresponding `EVENT_ID` and present it as a variable called `eventID`. Then, I will execute the command `gc.delete_event(eventID)`.
+
+        The final output should look like this:
+        eventID = "_60sjih9g8gskcb9p60pjab9k8kr3cba18kpj0b9h6ssk6dhm8p132c9n60_20240809"
+        gc.delete_event(eventID)
+
+        ALWAYS ENSURE NO MATTER WHAT that the output is not in code blocks with ```PYTHON```, and make sure there is no extra spacing before or after the `eventID` string.
+        """

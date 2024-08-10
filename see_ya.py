@@ -1,17 +1,16 @@
-from colorama import Fore, Style, init
+from colorama import Fore, Style
 
 
 def see_ya():
     print(
         rf"""
-{Style.BRIGHT}{Fore.YELLOW}
- #######  ##    ##     ###    
-##    ##   ##  ##     ## ##   
-##          ####     ##   ##  
-##           ##     ## # # ##
-##    ##     ##     ##     ## 
- ######      ##     ##     ##
- {Style.RESET_ALL}"""
+{Fore.RED} #######  ##    ##     ###    
+{Fore.GREEN}##    ##   ##  ##     ## ##   
+{Fore.BLUE}##          ####     ##   ##  
+{Fore.MAGENTA}##           ##     ## # # ##
+{Fore.CYAN}##    ##     ##     ##     ## 
+{Fore.YELLOW} ######      ##     ##     ##
+{Style.RESET_ALL}"""
     )
 
 

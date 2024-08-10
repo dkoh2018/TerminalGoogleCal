@@ -14,10 +14,15 @@ def view_events():
 
     # Prompt the user to select a time range
     print(f"\n{Style.BRIGHT}{Fore.CYAN}Select a time range option:{Style.RESET_ALL}\n")
-    print(f"{Fore.YELLOW}  1) Next 2 weeks from today{Style.RESET_ALL}")
-    print(f"{Fore.YELLOW}  2) Past 2 weeks from today{Style.RESET_ALL}")
-    print(f"{Fore.YELLOW}  3) Past week and this week{Style.RESET_ALL}\n")
-    choice = input(f"{Style.BRIGHT}Enter the option number (1/2/3): {Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}  1) Next 2 weeks{Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}  2) Last 2 weeks{Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}  3) Next month{Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}  4) Last month{Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}  5) Summarize most recent{Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}  6) Go back to home{Style.RESET_ALL}\n")
+    choice = input(
+        f"{Style.BRIGHT}Enter the option number (1/2/3/4/5/6): {Style.RESET_ALL}"
+    )
 
     if choice == "1":
         time_min = datetime.now() - timedelta(days=0)
@@ -26,10 +31,21 @@ def view_events():
         time_min = datetime.now() - timedelta(days=14)
         time_max = datetime.now() + timedelta(days=0)
     elif choice == "3":
-        time_min = datetime.now() - timedelta(days=7)
+        time_min = datetime.now()
+        time_max = datetime.now() + timedelta(days=30)
+    elif choice == "4":
+        time_min = datetime.now() - timedelta(days=30)
+        time_max = datetime.now()
+    elif choice == "5":
+        time_min = datetime.now() - timedelta(days=3)
         time_max = datetime.now() + timedelta(days=7)
+    elif choice == "6":
+        print(f"\n{Fore.GREEN}Returning to main menu...{Style.RESET_ALL}")
+        return
     else:
-        print(f"{Fore.RED}Invalid choice. Please select 1, 2, or 3.{Style.RESET_ALL}")
+        print(
+            f"{Fore.RED}\nInvalid choice. Please select 1, 2, 3, 4, 5, or 6.{Style.RESET_ALL}"
+        )
         return
 
     events = list(

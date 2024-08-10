@@ -1,17 +1,84 @@
 
-[32mDelete upcoming events from 2024-08-09 to 2024-08-23:[0m
+[32mDelete most recent events from 2024-08-08 to 2024-08-13:[0m
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 [36mEvent: 1[0m
-   [33mEVENT_ID: f3o3q1enf66kfiah1gd0ba0m2s[0m
-   [33mSummary: [0mProject Guidelines Review
-   [33mStart: [0m2024-08-10 20:00
-   [33mEnd: [0m2024-08-10 22:00
-   Description: Review project guidelines. More info at https://waitbutwhy.com
+   [33mEVENT_ID: 84t8hb330a44nlp4nd3s1k5kpg[0m
+   [33mSummary: [0mWalk Mocha
+   [33mStart: [0m2024-08-08 12:00
+   [33mEnd: [0m2024-08-08 14:00
+   Description: Took Mocha for a walk.
 --------------------------------------------------------------------------------
 [36mEvent: 2[0m
-   [33mEVENT_ID: 7guvgq173tjlgeo9cp1frkoe9l[0m
-   [33mSummary: [0mTAKE HEARTWORK FOR MOHCA
-   [33mStart: [0m2024-08-17 10:00
-   [33mEnd: [0m2024-08-17 14:15
+   [33mEVENT_ID: es2rubtuu7frtt4l2oh1ncb1no[0m
+   [33mSummary: [0mG-Cal Calendar Project Work
+   [33mStart: [0m2024-08-08 15:00
+   [33mEnd: [0m2024-08-08 16:00
+   Description: Started working on the G-Cal calendar project for terminal.
+--------------------------------------------------------------------------------
+[36mEvent: 3[0m
+   [33mEVENT_ID: bl3j5rfg60nob4blkdsfcqollo[0m
+   [33mSummary: [0mShopping at Lotte Supermarket
+   [33mStart: [0m2024-08-08 16:00
+   [33mEnd: [0m2024-08-08 19:00
+   Description: Went shopping with Jane at Lotte supermarket.
+--------------------------------------------------------------------------------
+[36mEvent: 4[0m
+   [33mEVENT_ID: kc3h6k8fih4ssh3jl5lcm1nifs[0m
+   [33mSummary: [0mDinner
+   [33mStart: [0m2024-08-08 19:00
+   [33mEnd: [0m2024-08-08 19:30
+   Description: Ate dinner.
+--------------------------------------------------------------------------------
+[36mEvent: 5[0m
+   [33mEVENT_ID: pi95s8tqtvloh0e3afaa9rua8c[0m
+   [33mSummary: [0mBackend G-Cal Project Coding
+   [33mStart: [0m2024-08-08 19:30
+   [33mEnd: [0m2024-08-08 23:59
+   Description: Continued coding the backend for the G-Cal project.
+--------------------------------------------------------------------------------
+[36mEvent: 6[0m
+   [33mEVENT_ID: phfsalk53eh89jaobc0tkpr46k[0m
+   [33mSummary: [0mWalk with Mocha
+   [33mStart: [0m2024-08-09 11:00
+   [33mEnd: [0m2024-08-09 12:00
+   Description: Took Mocha for a walk.
+--------------------------------------------------------------------------------
+[36mEvent: 7[0m
+   [33mEVENT_ID: ofmhqjgnshdtbhbpju1n0k3bo8[0m
+   [33mSummary: [0mG-Cal Calendar Test
+   [33mStart: [0m2024-08-09 13:00
+   [33mEnd: [0m2024-08-09 15:00
+   Description: Successfully figured out how to create backend integration using OAuth. Learned about: 
+- OAuth authentication flow 
+- Google Calendar API 
+- Event creation and management
+--------------------------------------------------------------------------------
+[36mEvent: 8[0m
+   [33mEVENT_ID: t73bkeom4jagflooei1c42ma04[0m
+   [33mSummary: [0mKdrama Watching
+   [33mStart: [0m2024-08-09 15:00
+   [33mEnd: [0m2024-08-09 16:00
+   Description: Watched Kdrama for an hour.
+--------------------------------------------------------------------------------
+[36mEvent: 9[0m
+   [33mEVENT_ID: ktecbr6bh8hr20tguhpo9iqd58[0m
+   [33mSummary: [0mSnack Break
+   [33mStart: [0m2024-08-09 16:00
+   [33mEnd: [0m2024-08-09 16:30
+   Description: Had a small snack.
+--------------------------------------------------------------------------------
+[36mEvent: 10[0m
+   [33mEVENT_ID: eepievui2j3vkb714tcfm7j92c[0m
+   [33mSummary: [0mG-Cal Project Work
+   [33mStart: [0m2024-08-09 16:30
+   [33mEnd: [0m2024-08-09 23:00
+   Description: Continued working on the G-Cal project and other backend tasks.
+--------------------------------------------------------------------------------
+[36mEvent: 11[0m
+   [33mEVENT_ID: 9q9iltdo7gl0e8f5of7dcc3lvc[0m
+   [33mSummary: [0mFarming Activity
+   [33mStart: [0m2024-08-10 12:00
+   [33mEnd: [0m2024-08-10 13:00
+   Description: Went farming.
 --------------------------------------------------------------------------------

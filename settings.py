@@ -19,12 +19,14 @@ def calendar_settings():
     )
 
     settings = gc.get_settings()
-    print("\n" + "-" * 40)
-    print(f"{settings}")
-    print("-" * 40)
+    print(f"\n{Fore.CYAN}{Style.BRIGHT}{'='*50}")
+    print(f"{Fore.YELLOW}{Style.BRIGHT}⚙️ User Settings")
+    print(f"{Fore.CYAN}{Style.BRIGHT}{'='*50}")
 
+    print(f"{settings}")
+    print(f"{Fore.CYAN}{Style.BRIGHT}{'='*50}")
     print(
-        f"\n{Fore.CYAN}...is there anything else you'd like to do?{Style.RESET_ALL}\n"
+        f"\n{Fore.YELLOW}...is there anything else you'd like to do?{Style.RESET_ALL}\n"
     )
 
 
