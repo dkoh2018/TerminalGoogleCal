@@ -6,19 +6,11 @@ from beautiful_date import hours
 from openai import OpenAI
 import os
 from dotenv import load_dotenv
+from authenticate_calendar import authenticate_calendar
 
 
 def add_new_event():
-    # initialize GoogleCalendar with the environment variables
-    load_dotenv(dotenv_path=".env.local")
-
-    credentials_path = os.getenv("CREDENTIALS_PATH")
-    token_path = os.getenv("TOKEN_PATH")
-
-    gc = GoogleCalendar(
-        credentials_path=credentials_path,
-        token_path=token_path,
-    )
+    gc = authenticate_calendar()
 
     # predefined system prompts
     system_message_parameterdirections = """
@@ -104,7 +96,7 @@ def add_new_event():
 
     Now i will go ahead and convert it into the proper parameters as you had described it and then make sure to add the last line gc.add_event(event1) to complete it. If the input requires more than 1 event, then i will add on each line gc.add_event(event1) gc.add_event(event2) gc.add_event(event3) and so on. 
 
-
+    I will ALWAYS ENSURE NO MATTER WHAT that the output is not in code blocks with ```PYTHON```
     """
 
     # user input
@@ -116,7 +108,7 @@ def add_new_event():
     messages = [
         {
             "role": "system",
-            "content": f"{system_message_directions}",
+            "content": f"{system_message_parameterdirections}",
         },
         {
             "role": "system",
