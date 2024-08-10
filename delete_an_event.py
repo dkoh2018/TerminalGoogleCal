@@ -17,15 +17,15 @@ def delete_an_event():
 
         # Determine the time range based on user choice
         if choice == "1":
+            time_min = datetime.now()
+            time_max = datetime.now() + timedelta(days=14)
+            header = f"\nDelete upcoming events from {time_min.date()} to {time_max.date()}:\n"
+        elif choice == "2":
             time_min = datetime.now() - timedelta(days=14)
             time_max = datetime.now()
             header = (
-                f"\nDeleting past events from {time_min.date()} to {time_max.date()}:\n"
+                f"\nDelete past events from {time_min.date()} to {time_max.date()}:\n"
             )
-        elif choice == "2":
-            time_min = datetime.now()
-            time_max = datetime.now() + timedelta(days=14)
-            header = f"\nDeleting upcoming events from {time_min.date()} to {time_max.date()}:\n"
         else:
             print("Invalid choice. Exiting.")
             exit()
@@ -93,7 +93,7 @@ def delete_an_event():
         eventID = "_60sjih9g8gskcb9p60pjab9k8kr3cba18kpj0b9h6ssk6dhm8p132c9n60_20240809"
         gc.delete_event(eventID)
 
-        Ensure that the output is not in code blocks, and make sure there is no extra spacing before or after the `eventID` string.
+        ALWAYS ENSURE NO MATTER WHAT that the output is not in code blocks with ```PYTHON```, and make sure there is no extra spacing before or after the `eventID` string.
         """
 
         input_message = input(

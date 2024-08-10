@@ -138,6 +138,39 @@ def add_new_event():
 
     exec(make_action)
 
+    # summarize events added
+    with open("llm_output.txt", "r") as file:
+        added_events = file.read()
+
+    system_request2 = """
+    I will quickly summarize the events added for you in a simple list. Make sure to include the event title and start/end time that's easy to read. You will see the output something similar to this:
+    
+    Great! I've added these events for you:
+    1)
+    2)
+    3)
+    4)
+        
+    """
+    messages2 = [
+        {
+            "role": "system",
+            "content": f"{system_request2}",
+        },
+        {
+            "role": "user",
+            "content": f"{added_events}",
+        },
+    ]
+
+    response2 = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=messages2,
+        temperature=0.5,
+    )
+
+    print(response2.choices[0].message.content)
+
 
 if __name__ == "__main__":
     add_new_event()
