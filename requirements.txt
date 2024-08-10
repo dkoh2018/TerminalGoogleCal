@@ -1,0 +1,4 @@
+gcsa
+colorama
+python-dotenv
+openai
