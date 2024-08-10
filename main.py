@@ -13,6 +13,7 @@ init(autoreset=True)
 
 def main_menu():
     while True:
+
         print(f"\n{Style.BRIGHT}What would you like to do today?{Style.RESET_ALL}")
         print(f"{Fore.CYAN}1. Add new event(s){Style.RESET_ALL}")
         print(f"{Fore.CYAN}2. Summarize my day{Style.RESET_ALL}")
