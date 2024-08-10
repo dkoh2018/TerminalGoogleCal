@@ -1,13 +1,17 @@
+from colorama import Fore, Style, init
+
+
 def see_ya():
     print(
-        """
+        rf"""
+{Style.BRIGHT}{Fore.YELLOW}
  #######  ##    ##     ###    
 ##    ##   ##  ##     ## ##   
 ##          ####     ##   ##  
 ##           ##     ## # # ##
 ##    ##     ##     ##     ## 
  ######      ##     ##     ##
-        """
+ {Style.RESET_ALL}"""
     )
 
 

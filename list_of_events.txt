@@ -1,36 +1,17 @@
 
-[32mDelete past events from 2024-07-26 to 2024-08-09:[0m
+[32mDelete upcoming events from 2024-08-09 to 2024-08-23:[0m
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 [36mEvent: 1[0m
-   [33mEVENT_ID: illnalp3f7oler42lc4cank0ns[0m
-   [33mSummary: [0mCoding Session
-   [33mStart: [0m2024-08-08 12:00
-   [33mEnd: [0m2024-08-08 14:00
+   [33mEVENT_ID: f3o3q1enf66kfiah1gd0ba0m2s[0m
+   [33mSummary: [0mProject Guidelines Review
+   [33mStart: [0m2024-08-10 20:00
+   [33mEnd: [0m2024-08-10 22:00
+   Description: Review project guidelines. More info at https://waitbutwhy.com
 --------------------------------------------------------------------------------
 [36mEvent: 2[0m
-   [33mEVENT_ID: hhj8f48oo0b97sk477pk95hn3s[0m
-   [33mSummary: [0mCooking Dinner for Jane
-   [33mStart: [0m2024-08-08 16:00
-   [33mEnd: [0m2024-08-08 19:00
---------------------------------------------------------------------------------
-[36mEvent: 3[0m
-   [33mEVENT_ID: fd4r5846pab317stt2m69mdlvo[0m
-   [33mSummary: [0mPython Coding
-   [33mStart: [0m2024-08-08 19:00
-   [33mEnd: [0m2024-08-09 00:00
---------------------------------------------------------------------------------
-[36mEvent: 4[0m
-   [33mEVENT_ID: inhhncmbim5l7hqf11rd25t768[0m
-   [33mSummary: [0mHiking Trip
-   [33mStart: [0m2024-08-09 06:00
-   [33mEnd: [0m2024-08-09 08:00
-   Description: Enjoy a morning hike.
---------------------------------------------------------------------------------
-[36mEvent: 5[0m
-   [33mEVENT_ID: 3ohmh54n2n1a7a84tbmis1lv00[0m
-   [33mSummary: [0mGoogle Calendar GPT Development
-   [33mStart: [0m2024-08-09 13:00
-   [33mEnd: [0m2024-08-09 20:33
-   Description: Finished making the Google Calendar GPT today. More details can be found at https://github.com/dkoh2018/TerminalGoogleCal
+   [33mEVENT_ID: 7guvgq173tjlgeo9cp1frkoe9l[0m
+   [33mSummary: [0mTAKE HEARTWORK FOR MOHCA
+   [33mStart: [0m2024-08-17 10:00
+   [33mEnd: [0m2024-08-17 14:15
 --------------------------------------------------------------------------------
