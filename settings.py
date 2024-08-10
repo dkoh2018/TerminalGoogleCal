@@ -1,14 +1,12 @@
+from gcsa.google_calendar import GoogleCalendar
 import os
 from dotenv import load_dotenv
-from gcsa.google_calendar import GoogleCalendar
-from colorama import Fore, Style, init
 from authenticate_calendar import authenticate_calendar
+from colorama import Fore, Style, init
 
 
 def calendar_settings():
-    # Construct the path to .env.local in the parent directory
-    env_path = os.path.join(os.path.dirname(__file__), "..", ".env.local")
-    load_dotenv(dotenv_path=env_path)
+    load_dotenv(dotenv_path=".env.local")
 
     # Retrieve the variables
     credentials_path = os.getenv("CREDENTIALS_PATH")

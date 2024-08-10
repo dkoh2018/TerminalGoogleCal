@@ -13,7 +13,9 @@ def view_events():
     gc = authenticate_calendar()
 
     # Prompt the user to select a time range
-    print(f"\n{Style.BRIGHT}{Fore.CYAN}Select a time range option:{Style.RESET_ALL}\n")
+    print(
+        f"\n{Style.BRIGHT}{Fore.CYAN}☀️🌙 Select a time range option:{Style.RESET_ALL}\n"
+    )
     print(f"{Fore.YELLOW}  1) Next 2 weeks{Style.RESET_ALL}")
     print(f"{Fore.YELLOW}  2) Last 2 weeks{Style.RESET_ALL}")
     print(f"{Fore.YELLOW}  3) Next month{Style.RESET_ALL}")
@@ -74,7 +76,7 @@ def view_events():
             else event.end
         )
 
-        print(f"{Fore.CYAN}Summary: {Style.RESET_ALL}{event.summary}")
+        print(f"{Fore.YELLOW}Summary: {Style.RESET_ALL}{event.summary}")
         print(f"{Fore.CYAN}Start: {Style.RESET_ALL}{start_time}")
         print(f"{Fore.CYAN}End: {Style.RESET_ALL}{end_time}")
 

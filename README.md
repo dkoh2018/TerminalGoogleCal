@@ -55,4 +55,35 @@ follow the on-screen prompts to interact with your google calendar.
 - `view_events.py`: displays calendar events
 - `settings.py`: manages calendar settings
 
-contributions are welcome. please open an issue or submit a pull request.
+## how to add file icon onto desktop
+
+1. Navigate to your Desktop:
+
+   ```
+   cd ~/Desktop
+   ```
+
+2. Create the script file:
+
+   ```
+   nano run_gcal.command
+   ```
+
+3. Add the following content to the file:
+
+   ```
+   #!/bin/bash
+   cd /Users/davidoh/TerminalGoogleCal/
+   python3 main.py
+   ```
+
+4. Save and exit nano (CTRL + O, then CTRL + X)
+
+5. Make the script executable:
+   ```
+   chmod +x run_gcal.command
+   ```
+
+Now you can double-click the `run_gcal.command` file on your Desktop to launch the application.
+
+#### contributions are welcome. please open an issue or submit a pull request.
