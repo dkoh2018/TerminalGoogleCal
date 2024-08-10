@@ -3,17 +3,21 @@ from dotenv import load_dotenv
 import os
 from datetime import datetime, timedelta
 from authenticate_calendar import authenticate_calendar
+from colorama import Fore, Style, init
+
+# Initialize colorama
+init(autoreset=True)
 
 
 def view_events():
     gc = authenticate_calendar()
 
-    # prompt the user to select a time range
-    print("\nselect a time range option:\n")
-    print("  1) next 2 weeks from today")
-    print("  2) past 2 weeks from today")
-    print("  3) past week and this week\n")
-    choice = input("enter the option number (1/2/3): ")
+    # Prompt the user to select a time range
+    print(f"\n{Style.BRIGHT}{Fore.CYAN}Select a time range option:{Style.RESET_ALL}\n")
+    print(f"{Fore.YELLOW}  1) Next 2 weeks from today{Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}  2) Past 2 weeks from today{Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}  3) Past week and this week{Style.RESET_ALL}\n")
+    choice = input(f"{Style.BRIGHT}Enter the option number (1/2/3): {Style.RESET_ALL}")
 
     if choice == "1":
         time_min = datetime.now() - timedelta(days=0)
@@ -25,7 +29,7 @@ def view_events():
         time_min = datetime.now() - timedelta(days=7)
         time_max = datetime.now() + timedelta(days=7)
     else:
-        print("Invalid choice. Please select 1, 2, or 3.")
+        print(f"{Fore.RED}Invalid choice. Please select 1, 2, or 3.{Style.RESET_ALL}")
         return
 
     events = list(
@@ -33,12 +37,14 @@ def view_events():
     )
 
     if not events:
-        print("No events found in the selected time range.")
+        print(f"{Fore.RED}No events found in the selected time range.{Style.RESET_ALL}")
         return
 
-    print(f"\nEvents from {time_min.date()} to {time_max.date()}:")
-    print("-" * 80)
-    print("-" * 80)
+    print(
+        f"\n{Style.BRIGHT}{Fore.CYAN}Events from {time_min.date()} to {time_max.date()}:{Style.RESET_ALL}"
+    )
+    print(f"{Fore.YELLOW}{'-' * 80}{Style.RESET_ALL}")
+    print(f"{Fore.YELLOW}{'-' * 80}{Style.RESET_ALL}")
 
     for event in events:
         start_time = (
@@ -52,13 +58,13 @@ def view_events():
             else event.end
         )
 
-        print(f"Summary: {event.summary}")
-        print(f"Start: {start_time}")
-        print(f"End: {end_time}")
+        print(f"{Fore.CYAN}Summary: {Style.RESET_ALL}{event.summary}")
+        print(f"{Fore.CYAN}Start: {Style.RESET_ALL}{start_time}")
+        print(f"{Fore.CYAN}End: {Style.RESET_ALL}{end_time}")
 
         if event.description:
-            print(f"Description: {event.description}")
-        print("-" * 80)
+            print(f"{Fore.CYAN}Description: {Style.RESET_ALL}{event.description}")
+        print(f"{Fore.YELLOW}{'-' * 80}{Style.RESET_ALL}")
 
 
 if __name__ == "__main__":

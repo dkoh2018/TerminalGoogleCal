@@ -7,6 +7,7 @@ from openai import OpenAI
 import os
 from dotenv import load_dotenv
 from authenticate_calendar import authenticate_calendar
+from colorama import Fore, Style, init
 
 
 def add_new_event():
@@ -100,9 +101,17 @@ def add_new_event():
     """
 
     # user input
+    print(f"{Fore.CYAN}{Style.BRIGHT}--- Add a New Event ---{Style.RESET_ALL}\n")
+
+    # Get current time and user input
+    user_input = input(
+        f"{Fore.YELLOW}{Style.BRIGHT}What would you like to add to your calendar?\n==> {Style.RESET_ALL}"
+    )
     current_time = datetime.now()
-    user_input = input(f"{current_time}:\nwhat do you want to add???\n==> ")
+
+    # Combine current time with user input
     user_message = f"{current_time}: {user_input}"
+
     # initiate llm
     client = OpenAI()
     messages = [
@@ -143,14 +152,19 @@ def add_new_event():
         added_events = file.read()
 
     system_request2 = """
-    I will quickly summarize the events added for you in a simple list. Make sure to include the event title and start/end time that's easy to read. You will see the output something similar to this:
+    I will quickly summarize the events added for you in a simple list. Make sure to include the event title, start/end time, and description (if available) that's easy to read. You will see the output something similar to this:
     
     Great! I've added these events for you:
-    1)
-    2)
-    3)
-    4)
-        
+    1) Testing Application  
+       Start: August 9, 2024, 8:00 PM  
+       End: August 9, 2024, 10:00 PM  
+
+    2) Hiking with Mocha  
+       Start: August 10, 2024, 8:00 AM  
+       End: August 10, 2024, 3:00 PM  
+    
+    Successfully added...
+    Let's continue...
     """
     messages2 = [
         {
@@ -169,6 +183,7 @@ def add_new_event():
         temperature=0.5,
     )
 
+    print("\n")
     print(response2.choices[0].message.content)
 
 

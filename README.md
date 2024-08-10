@@ -2,32 +2,40 @@
 
 this project utilizes the `gcsa` package for google calendar integration and openai for generating event details. ensure you have an openai api key to use this functionality.
 
-- Add new events to your Google Calendar
-- Delete events from your calendar
-- View existing events
-- Manage calendar settings
+- add new events to your google calendar
+- delete events from your calendar
+- view existing events
+- manage calendar settings
 
-## Prerequisites
+## you'l need
 
-- Python 3.x
-- Google Calendar API credentials.json (OAuth)
+- python 3.x
+- google calendar api credentials.json (oauth)
 
-## Usage
+if you have a credentials.json (client*secret*\*.json) file (see getting started), googlecalendar will read all the needed data to generate the token and refresh-token from it.
 
-Run the main script:
+to read credentials.json (client*secret*\*.json) from the default directory (~/.credentials) use:
 
+```python
+gc = googlecalendar()
 ```
+
+## usage
+
+run main script:
+
+```bash
 python main.py
 ```
 
-Follow the on-screen prompts to interact with your Google Calendar.
+follow the on-screen prompts to interact with your google calendar.
 
-## File Structure
+## file structure
 
-- `main.py`: Entry point of the application
-- `add_new_event.py`: Handles adding new events to the calendar
-- `delete_an_event.py`: Manages event deletion
-- `view_events.py`: Displays calendar events
-- `settings.py`: Manages calendar settings
+- `main.py`: entry point of the application
+- `add_new_event.py`: handles adding new events to the calendar
+- `delete_an_event.py`: manages event deletion
+- `view_events.py`: displays calendar events
+- `settings.py`: manages calendar settings
 
-Contributions are welcome. Please open an issue or submit a pull request.
+contributions are welcome. please open an issue or submit a pull request.
